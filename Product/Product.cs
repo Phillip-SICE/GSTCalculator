@@ -10,7 +10,7 @@ namespace GSTCalculator
         public decimal Price { get; set; }
         private const Decimal GST = 0.1M;
 
-        public Product (string name, decimal price)
+        public Product(string name, decimal price)
         {
             if(String.IsNullOrEmpty(name))
             {
