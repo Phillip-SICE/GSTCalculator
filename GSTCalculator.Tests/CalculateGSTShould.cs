@@ -20,16 +20,31 @@ namespace GSTCalculator.Tests
         public void NotAllowZeroOrNegativePrice()
         {
             Assert.That(() => new Product("Apple", 0), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Assert.That(() => new Product("Apple", -1), Throws.TypeOf<ArgumentOutOfRangeException>());
         }
 
         [Test]
-        public void CalculateGSTForProduct()
+        public void CalculateGSTForProducts()
         {
-            var productUnderTest = new Product("Apple", 10);
+            var productRepositoy = new ProductRepository();
+            var productService = new ProductService(productRepositoy);
+            productRepositoy.CreateProduct(new Product("Apple", 20M));
+            productRepositoy.CreateProduct(new Product("Banana", 3M));
+            
+            var actualResult = productService.CalculateGST(productRepositoy.GetProducts());
+            var expectedResult = new List<Decimal>()
+            {
+                2M,
+                0.3M
+            };
+            
 
-            Decimal resultGST = 1M;
-
-            Assert.That(resultGST, Is.EqualTo(productUnderTest.CalculateGST()));
+            for(var i = 0; i < 2; i++)
+            {
+                var expected = expectedResult[i];
+                var actual = actualResult[i];
+                Assert.That(expected, Is.EqualTo(actual));
+            }
         }
     }
 }
