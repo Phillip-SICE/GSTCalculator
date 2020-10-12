@@ -26,12 +26,12 @@ namespace GSTCalculator.Tests
         [Test]
         public void CalculateGSTForProducts()
         {
-            var productRepositoy = new ProductRepository();
-            var productService = new ProductService(productRepositoy);
-            productRepositoy.CreateProduct(new Product("Apple", 20M));
-            productRepositoy.CreateProduct(new Product("Banana", 3M));
+            var productRepository = new ProductRepository();
+            var productService = new ProductService(productRepository);
+            productRepository.CreateProduct(new Product("Apple", 20M));
+            productRepository.CreateProduct(new Product("Banana", 3M));
             
-            var actualResult = productService.CalculateGST(productRepositoy.GetProducts());
+            var actualResult = productService.CalculateGST(productRepository.GetProducts());
             var expectedResult = new List<Decimal>()
             {
                 2M,
