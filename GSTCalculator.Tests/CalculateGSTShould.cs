@@ -1,8 +1,7 @@
-﻿using NUnit.Framework;
-using GSTCalculator;
+﻿using FluentAssertions;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace GSTCalculator.Tests
 {
@@ -13,14 +12,18 @@ namespace GSTCalculator.Tests
         [Test]
         public void NotAllowEmptyProductName()
         {
-            Assert.That(() => new Product("", 1), Throws.TypeOf<ArgumentException>());
+            Action action = () => new Product("", 1);
+            action.Should().Throw<ArgumentException>();
         }
 
         [Test]
         public void NotAllowZeroOrNegativePrice()
         {
-            Assert.That(() => new Product("Apple", 0), Throws.TypeOf<ArgumentOutOfRangeException>());
-            Assert.That(() => new Product("Apple", -1), Throws.TypeOf<ArgumentOutOfRangeException>());
+            Action action1 = () => new Product("Apple", 0);
+            Action action2 = () => new Product("Apple", -1);
+
+            action1.Should().Throw<ArgumentOutOfRangeException>();
+            action2.Should().Throw<ArgumentOutOfRangeException>();
         }
 
         [Test]
@@ -37,14 +40,8 @@ namespace GSTCalculator.Tests
                 2M,
                 0.3M
             };
-            
 
-            for(var i = 0; i < 2; i++)
-            {
-                var expected = expectedResult[i];
-                var actual = actualResult[i];
-                Assert.That(expected, Is.EqualTo(actual));
-            }
+            actualResult.Should().BeEquivalentTo(expectedResult);
         }
     }
 }
