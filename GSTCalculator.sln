@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTCalculator.Tests", "GSTCalculator.Tests\GSTCalculator.Tests.csproj", "{F444357D-6CDE-40DA-9889-BD6FCA71C3B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSTCalculator.Tests", "GSTCalculator.Tests\GSTCalculator.Tests.csproj", "{F444357D-6CDE-40DA-9889-BD6FCA71C3B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Product", "Product\Product.csproj", "{03CCD177-E739-4F7A-870C-07F3F04FFF10}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Product", "Product\Product.csproj", "{03CCD177-E739-4F7A-870C-07F3F04FFF10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSTCalculator.xUnit.Tests", "GSTCalculator.xUnit.Tests\GSTCalculator.xUnit.Tests.csproj", "{221D2FAB-AD28-4C1F-BAAB-8AACBA5F671A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{03CCD177-E739-4F7A-870C-07F3F04FFF10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03CCD177-E739-4F7A-870C-07F3F04FFF10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03CCD177-E739-4F7A-870C-07F3F04FFF10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{221D2FAB-AD28-4C1F-BAAB-8AACBA5F671A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{221D2FAB-AD28-4C1F-BAAB-8AACBA5F671A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{221D2FAB-AD28-4C1F-BAAB-8AACBA5F671A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{221D2FAB-AD28-4C1F-BAAB-8AACBA5F671A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
